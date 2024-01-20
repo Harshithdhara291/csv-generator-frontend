@@ -15,7 +15,7 @@ const CsvGenerator = () => {
 
   const fetchEmployees = async () => {
     try {
-        const response = await fetch('http://localhost:5000/employees');
+        const response = await fetch('https://csv-generator.onrender.com/employees');
         const data = await response.json();
         setEmployees(data);
     } catch (error) {
@@ -29,7 +29,7 @@ const CsvGenerator = () => {
     if (!name || !email || !jobTitle) return;
 
     try {
-        await fetch('http://localhost:5000/employees', {
+        await fetch('https://csv-generator.onrender.com/employees', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const CsvGenerator = () => {
 
   const deleteEmployee = async (id) => {
     try {
-        await fetch(`http://localhost:5000/employees/${id}`, {
+        await fetch(`https://csv-generator.onrender.com/employees/${id}`, {
           method: 'DELETE',
         });
         fetchEmployees();
@@ -59,7 +59,7 @@ const CsvGenerator = () => {
 
   const downloadCSV = async () => {
     try {
-        const response = await fetch('http://localhost:5000/download', {
+        const response = await fetch('https://csv-generator.onrender.com/download', {
           method: 'GET',
           responseType: 'blob',
         });
